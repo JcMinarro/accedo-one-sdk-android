@@ -25,7 +25,7 @@ install {
 }
 
 task tag() << {
-    def tagname = project.name + "/v" + version
+    def tagname = "release/" + version
 
     def stdout = new ByteArrayOutputStream()
 
