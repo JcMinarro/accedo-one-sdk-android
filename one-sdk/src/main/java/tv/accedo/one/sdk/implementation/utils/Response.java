@@ -4,7 +4,7 @@
  * Proprietary and confidential
  */
 
-package tv.accedo.one.sdk.implementation.utils.net.restclient;
+package tv.accedo.one.sdk.implementation.utils;
 
 import android.util.Log;
 
@@ -16,8 +16,6 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import tv.accedo.one.sdk.implementation.utils.Utils;
 
 /**
  * @author Pásztor Tibor Viktor <tibor.pasztor@accedo.tv>
@@ -127,7 +125,7 @@ public class Response {
      *
      * @param httpUrlConnection the underlying httpUrlConnection used.
      * @param url the url we were connecting to.
-     * @param charset the charset used, the default being {@link RestClient.charset}.
+     * @param charset the charset used, the default being {@link Request.charset}.
      * @param logLevel the logLevel used by this restClient instance, the default being {@link LogLevel.NORMAL}
      */
     public Response(HttpURLConnection httpUrlConnection, String url, String charset) {

@@ -4,7 +4,7 @@
  * Proprietary and confidential
  */
 
-package tv.accedo.one.sdk.implementation.utils.net.restclient;
+package tv.accedo.one.sdk.implementation.utils;
 
 import android.util.Log;
 
@@ -16,12 +16,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import tv.accedo.one.sdk.implementation.utils.Utils;
-
 /**
  * @author Pásztor Tibor Viktor <tibor.pasztor@accedo.tv>
  */
-public class RestClient {
+public class Request {
     public static final String TAG = "RestClient";
     protected static final int DEFAULT_TIMEOUT_CONNECT = 5000;
     protected static final int DEFAULT_TIMEOUT_READ = 10000;
@@ -55,7 +53,7 @@ public class RestClient {
      * @param method GET, POST, PUT or DELETE
      * @return this RestClient instance for chaining
      */
-    public RestClient setMethod(Method method) {
+    public Request setMethod(Method method) {
         try {
             httpUrlConnection.setRequestMethod(method.name());
         } catch (Exception e) {
@@ -71,7 +69,7 @@ public class RestClient {
      * @param value the header value to be added
      * @return this RestClient instance for chaining
      */
-    public RestClient setHeader(String key, String value) {
+    public Request setHeader(String key, String value) {
         if (httpUrlConnection != null) {
             httpUrlConnection.setRequestProperty(key, value);
         }
@@ -85,7 +83,7 @@ public class RestClient {
      * @param value the header value to be added
      * @return this RestClient instance for chaining
      */
-    public RestClient addHeader(String key, String value) {
+    public Request addHeader(String key, String value) {
         if (httpUrlConnection != null) {
             httpUrlConnection.addRequestProperty(key, value);
         }
@@ -98,7 +96,7 @@ public class RestClient {
      * @param cookies the cookies to be added
      * @return this RestClient instance for chaining
      */
-    public RestClient setCookies(List<HttpCookie> cookies) {
+    public Request setCookies(List<HttpCookie> cookies) {
         this.cookies.clear();
         return addCookies(cookies);
     }
@@ -109,7 +107,7 @@ public class RestClient {
      * @param cookies the cookies to be added
      * @return this RestClient instance for chaining
      */
-    public RestClient addCookies(List<HttpCookie> cookies) {
+    public Request addCookies(List<HttpCookie> cookies) {
         if (cookies == null)
             return this;
 
@@ -139,7 +137,7 @@ public class RestClient {
      * @param output The string to be sent in the request body.
      * @return this RestClient instance for chaining
      */
-    public RestClient setPayload(String payload) {
+    public Request setPayload(String payload) {
         if (payload != null) {
             try {
                 this.payload = payload.getBytes(charset);
@@ -159,7 +157,7 @@ public class RestClient {
      * @param rawOutput The data to be sent in the request body.
      * @return this RestClient instance for chaining
      */
-    public RestClient setPayload(byte[] payload) {
+    public Request setPayload(byte[] payload) {
         this.payload = payload;
         return null;
     }
@@ -171,7 +169,7 @@ public class RestClient {
      * @param read    the timeout value for the fetching operation to be completed
      * @return this RestClient instance for chaining
      */
-    public RestClient setTimeout(int connect, int read) {
+    public Request setTimeout(int connect, int read) {
         if (httpUrlConnection != null) {
             httpUrlConnection.setConnectTimeout(connect);
             httpUrlConnection.setReadTimeout(read);
@@ -185,7 +183,7 @@ public class RestClient {
      * @param charset the RestClient instance should use. Doesn't accept null.
      * @return this RestClient instance for chaining
      */
-    public RestClient setCharset(String charset) {
+    public Request setCharset(String charset) {
         if (charset != null) {
             this.charset = charset;
         }
@@ -198,7 +196,7 @@ public class RestClient {
      * @param onResponseListener
      * @return this RestClient instance for chaining
      */
-    public RestClient setOnResponseListener(OnResponseListener onResponseListener) {
+    public Request setOnResponseListener(OnResponseListener onResponseListener) {
         this.onResponseListener = onResponseListener;
         return this;
     }
@@ -209,7 +207,7 @@ public class RestClient {
      * @param url          the url to load
      * @param httpCacheDir the folder to use for httpCaching. Recommended: new File(context.getCacheDir(), "http")
      */
-    public RestClient(String url) {
+    public Request(String url) {
         this.url = url;
 
         //Make HttpUrlConnection

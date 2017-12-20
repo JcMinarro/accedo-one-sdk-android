@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2016 - present Accedo Broadband AB. All Rights Reserved
- * Unauthorized copying of this file, via any medium is strictly prohibited
- * Proprietary and confidential
- */
-
 package tv.accedo.one.sdk.implementation;
 
 import android.content.Context;
@@ -21,7 +15,7 @@ import tv.accedo.one.sdk.implementation.async.AsyncAccedoOneUserImpl;
 import tv.accedo.one.sdk.model.AccedoOneException;
 import tv.accedo.one.sdk.model.AccedoOneException.StatusCode;
 import tv.accedo.one.sdk.implementation.parsers.JSONMapParser;
-import tv.accedo.one.sdk.implementation.utils.net.restclient.RestClient.Method;
+import tv.accedo.one.sdk.implementation.utils.Request.Method;
 
 /**
  * @author Pásztor Tibor Viktor <tibor.pasztor@accedo.tv>

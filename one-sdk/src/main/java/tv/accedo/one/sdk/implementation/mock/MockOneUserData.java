@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2016 - present Accedo Broadband AB. All Rights Reserved
- * Unauthorized copying of this file, via any medium is strictly prohibited
- * Proprietary and confidential
- */
-
 package tv.accedo.one.sdk.implementation.mock;
 
 import android.content.Context;
@@ -15,7 +9,7 @@ import tv.accedo.one.sdk.definition.AccedoOneUserData;
 import tv.accedo.one.sdk.definition.async.AsyncAccedoOneUser;
 import tv.accedo.one.sdk.implementation.async.AsyncAccedoOneUserImpl;
 import tv.accedo.one.sdk.model.AccedoOneException;
-import tv.accedo.one.sdk.implementation.utils.ObjectToFile;
+import tv.accedo.one.sdk.implementation.utils.InternalStorage;
 import tv.accedo.one.sdk.implementation.utils.Utils;
 
 /**
@@ -26,7 +20,7 @@ public class MockOneUserData implements AccedoOneUserData {
 
     @Override
     public Map<String, String> getAllUserData(Context context, Scope scope, String userId) throws AccedoOneException {
-        Map<String, String> userData = (Map<String, String>) ObjectToFile.read(context, getFileName(scope, userId));
+        Map<String, String> userData = (Map<String, String>) InternalStorage.read(context, getFileName(scope, userId));
         if(userData==null){
             userData = new HashMap<>();
         }
@@ -36,9 +30,9 @@ public class MockOneUserData implements AccedoOneUserData {
     @Override
     public void setAllUserData(Context context, Scope scope, String userId, Map<String, String> userData) throws AccedoOneException {
         if (userData == null) {
-            ObjectToFile.delete(context, getFileName(scope, userId));
+            InternalStorage.delete(context, getFileName(scope, userId));
         } else {
-            ObjectToFile.write(context, userData, getFileName(scope, userId));
+            InternalStorage.write(context, userData, getFileName(scope, userId));
         }
     }
 

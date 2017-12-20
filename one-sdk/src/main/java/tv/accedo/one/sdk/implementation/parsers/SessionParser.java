@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2016 - present Accedo Broadband AB. All Rights Reserved
- * Unauthorized copying of this file, via any medium is strictly prohibited
- * Proprietary and confidential
- */
-
 package tv.accedo.one.sdk.implementation.parsers;
 
 import android.annotation.SuppressLint;
@@ -16,10 +10,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import tv.accedo.one.sdk.implementation.utils.net.restclient.Response.ThrowingParser;
+import tv.accedo.one.sdk.implementation.utils.Response.ThrowingParser;
 import tv.accedo.one.sdk.model.AccedoOneException;
 import tv.accedo.one.sdk.model.AccedoOneException.StatusCode;
-import tv.accedo.one.sdk.implementation.utils.net.restclient.Response;
+import tv.accedo.one.sdk.implementation.utils.Response;
 
 /**
  * @author Pásztor Tibor Viktor <tibor.pasztor@accedo.tv>

@@ -18,7 +18,7 @@ import java.util.Map.Entry;
 
 import tv.accedo.one.sdk.definition.AccedoOneCache;
 import tv.accedo.one.sdk.definition.AccedoOne;
-import tv.accedo.one.sdk.implementation.utils.ObjectToFile;
+import tv.accedo.one.sdk.implementation.utils.InternalStorage;
 import tv.accedo.one.sdk.model.AccedoOneException;
 import tv.accedo.one.sdk.implementation.parsers.JSONMapByteParser;
 import tv.accedo.one.sdk.implementation.parsers.JSONObjectByteParser;
@@ -70,7 +70,7 @@ public class AccedoOneCacheImpl extends Constants implements AccedoOneCache {
         }
 
         String cacheKey = IfModifiedTask.getCacheKey(assetUrl, accedoOne.getAppKey(), accedoOne.getGid());
-        return (byte[]) ObjectToFile.read(context, cacheKey);
+        return (byte[]) InternalStorage.read(context, cacheKey);
     }
 
     @Override
@@ -106,7 +106,7 @@ public class AccedoOneCacheImpl extends Constants implements AccedoOneCache {
 
     private Map<String, String> getMapFromCache(Context context, String cacheKey) {
         try {
-            byte[] cachedValue = (byte[]) ObjectToFile.read(context, cacheKey);
+            byte[] cachedValue = (byte[]) InternalStorage.read(context, cacheKey);
             return new JSONMapByteParser().parse(cachedValue);
         } catch (AccedoOneException e) {
             return null;
@@ -115,7 +115,7 @@ public class AccedoOneCacheImpl extends Constants implements AccedoOneCache {
 
     private JSONObject getJSONFromCache(Context context, String cacheKey) {
         try {
-            byte[] cachedValue = (byte[]) ObjectToFile.read(context, cacheKey);
+            byte[] cachedValue = (byte[]) InternalStorage.read(context, cacheKey);
             return new JSONObjectByteParser().parse(cachedValue);
         } catch (AccedoOneException e) {
             return null;

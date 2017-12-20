@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2016 - present Accedo Broadband AB. All Rights Reserved
- * Unauthorized copying of this file, via any medium is strictly prohibited
- * Proprietary and confidential
- */
-
 package tv.accedo.one.sdk.implementation.async;
 
 import android.content.Context;

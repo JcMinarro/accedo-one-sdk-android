@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2016 - present Accedo Broadband AB. All Rights Reserved
- * Unauthorized copying of this file, via any medium is strictly prohibited
- * Proprietary and confidential
- */
-
 package tv.accedo.one.sdk.implementation;
 
 import android.os.Handler;
@@ -23,7 +17,7 @@ import tv.accedo.one.sdk.definition.async.Cancellable;
 import tv.accedo.one.sdk.implementation.parsers.LogLevelParser;
 import tv.accedo.one.sdk.implementation.utils.CallbackAsyncTask;
 import tv.accedo.one.sdk.implementation.utils.Utils;
-import tv.accedo.one.sdk.implementation.utils.net.restclient.RestClient.Method;
+import tv.accedo.one.sdk.implementation.utils.Request.Method;
 import tv.accedo.one.sdk.model.AccedoOneException;
 import tv.accedo.one.sdk.model.LogEntry;
 import tv.accedo.one.sdk.model.LogLevel;

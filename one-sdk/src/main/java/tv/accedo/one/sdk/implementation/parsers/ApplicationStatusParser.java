@@ -10,8 +10,8 @@ import org.json.JSONObject;
 
 import java.util.Locale;
 
-import tv.accedo.one.sdk.implementation.utils.net.restclient.Response;
-import tv.accedo.one.sdk.implementation.utils.net.restclient.Response.ThrowingParser;
+import tv.accedo.one.sdk.implementation.utils.Response;
+import tv.accedo.one.sdk.implementation.utils.Response.ThrowingParser;
 import tv.accedo.one.sdk.model.AccedoOneException;
 import tv.accedo.one.sdk.model.AccedoOneException.StatusCode;
 import tv.accedo.one.sdk.model.ApplicationStatus;

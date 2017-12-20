@@ -21,7 +21,7 @@ import java.io.ObjectOutputStream;
  *
  * @author Pásztor Tibor Viktor <tibor.pasztor@accedo.tv>
  */
-public class ObjectToFile {
+public class InternalStorage {
 
     /**
      * Serializes an object into a file, stored in the application's private file storage.

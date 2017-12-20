@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2016 - present Accedo Broadband AB. All Rights Reserved
- * Unauthorized copying of this file, via any medium is strictly prohibited
- * Proprietary and confidential
- */
-
 package tv.accedo.one.sdk.implementation;
 
 import android.content.Context;
@@ -29,9 +23,9 @@ import tv.accedo.one.sdk.definition.AccedoOneUserData;
 import tv.accedo.one.sdk.definition.async.AsyncAccedoOneControl;
 import tv.accedo.one.sdk.implementation.async.AsyncAccedoOneControlImpl;
 import tv.accedo.one.sdk.implementation.utils.Utils;
-import tv.accedo.one.sdk.implementation.utils.net.restclient.Response;
-import tv.accedo.one.sdk.implementation.utils.net.restclient.RestClient;
-import tv.accedo.one.sdk.implementation.utils.net.restclient.RestClient.OnResponseListener;
+import tv.accedo.one.sdk.implementation.utils.Response;
+import tv.accedo.one.sdk.implementation.utils.Request;
+import tv.accedo.one.sdk.implementation.utils.Request.OnResponseListener;
 import tv.accedo.one.sdk.model.AccedoOneException;
 import tv.accedo.one.sdk.model.AccedoOneException.StatusCode;
 import tv.accedo.one.sdk.model.ApplicationStatus;
@@ -305,15 +299,15 @@ public class AccedoOneImpl extends Constants implements AccedoOne, AccedoOneCont
         return new AccedoOneCacheImpl(this);
     }
 
-    public RestClient createRestClient(String url) {
+    public Request createRestClient(String url) {
         Uri uri = Uri.parse(url);
         if (!TextUtils.isEmpty(gid)) {
             uri = uri.buildUpon().appendQueryParameter("gid", gid).build();
         }
-        return new RestClient(uri.toString());
+        return new Request(uri.toString());
     }
 
-    public RestClient createSessionedRestClient(String url) throws AccedoOneException {
+    public Request createSessionedRestClient(String url) throws AccedoOneException {
         return createRestClient(url).addHeader(HEADER_SESSION, getSession());
     }
 
