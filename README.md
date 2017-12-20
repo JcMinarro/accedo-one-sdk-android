@@ -30,7 +30,7 @@ The default factory exposed by this SDK allows creating a client instance tied t
 
 ## Documentation
 
-For the time being, please refer to the JavaDoc inside the definition file of all Services, that you can find here: [API docs](https://github.com/Accedo-Products/accedo-one-sdk-android/one-sdk/src/main/java/tv/accedo/one/sdk/definition/)
+For the time being, please refer to the JavaDoc inside the definition file of all Services, that you can find here: [API docs](https://github.com/Accedo-Products/accedo-one-sdk-android/tree/master/one-sdk/src/main/java/tv/accedo/one/sdk/definition)
 
 An exported and more detailed version coming soon!
 
@@ -40,7 +40,7 @@ You may also want to refer to the [Accedo One Rest API documentation](https://de
 
 Maven repository soon to come, please stand by! Until then you can just download the SDK binaries, and include them into your project manually. You can do that with the following steps:
 
-- Copy the SDK binaries into your libs folder [from here](https://github.com/Accedo-Products/accedo-one-sdk-android/binaries/). Make sure you include sources and javadoc aswell.
+- Copy the SDK binaries into your libs folder [from here](https://github.com/Accedo-Products/accedo-one-sdk-android/tree/master/binaries/1.0.0). Make sure you include sources and javadoc aswell.
 
 - Apply it in your buildscript as a dependency:
 
