@@ -38,18 +38,20 @@ You may also want to refer to the [Accedo One Rest API documentation](https://de
 
 ## Usage
 
-- Copy the SDK binaries into your libs folder [from here.](https://github.com/Accedo-Products/accedo-one-sdk-android/binaries/) (maven repository soon to come!)
+Maven repository soon to come, please stand by! Until then you can just download the SDK binaries, and include them into your project manually. You can do that with the following steps:
+
+- Copy the SDK binaries into your libs folder [from here](https://github.com/Accedo-Products/accedo-one-sdk-android/binaries/). Make sure you include sources and javadoc aswell.
 
 - Apply it in your buildscript as a dependency:
 
 ```
 repositories {
-    flatDir{
+    flatDir {
         dirs 'libs'
     }
 }
 dependencies {
-    compile 'tv.accedo.one:one-sdk:1.0.0'
+    implementation 'tv.accedo.one:one-sdk:1.0.0@aar'
 }
 ```
 - Create a singleton instance of AccedoOne in your service holder or application such as:

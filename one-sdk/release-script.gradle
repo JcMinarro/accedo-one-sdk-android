@@ -10,10 +10,9 @@ apply from: 'javadoc.gradle'
 install {
     doLast {
         copy {
-            from System.getProperty("user.home") + "/.m2/repository/tv/accedo/vdk"
+            from System.getProperty("user.home") + "/.m2/repository/tv/accedo/one/one-sdk"
             into "../binaries"
 
-            exclude '**/*.pom'
             exclude '**/*.xml'
 
             eachFile {
@@ -92,6 +91,6 @@ android.defaultConfig.buildConfigField "String", "MODULE_NAME", "\"" + project.n
 android.defaultConfig.testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
 dependencies {
-    androidTestCompile 'junit:junit:4.12'
-    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
 }
