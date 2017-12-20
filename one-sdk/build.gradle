@@ -1,0 +1,20 @@
+group = 'tv.accedo.one.sdk'
+version = '1.0'
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 26
+    }
+}
+
+dependencies {
+
+}
+
+apply from: 'release-script.gradle'
